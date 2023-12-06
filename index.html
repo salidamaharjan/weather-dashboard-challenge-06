@@ -13,10 +13,21 @@
     />
   </head>
   <body>
-    <header class="header-title has-background-link has-text-white-bis has-text-centered has-text-weight-bold">Weather Dashboard</header>
-    <aside class="left-side">Search for a city:</aside>
-    <main class="weather-display">Weather is displayed here.</main>
-    
+    <div class="main-container m-4">
+      <header
+        class="header-title has-background-link has-text-white-bis has-text-centered has-text-weight-bold"
+      >
+        Weather Dashboard
+      </header>
+      <div class="columns">
+        <aside
+          class="left-side has-text-weight-bold has-text-black column is-one-third"
+        >
+          Search for a City:
+        </aside>
+        <main class="weather-display column is-two-third">Weather is displayed here.</main>
+      </div>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>
