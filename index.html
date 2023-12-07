@@ -14,26 +14,41 @@
   </head>
   <body>
     <!--added basics for the UI using semantic HTML tags-->
-    <header class="heading">Weather Dashboard</header>
-    <aside class="left-side">
-      <label 
-        >Search for a city: <input class="city-input" type="text" placeholder="Enter a city"
-      /></label>
-      <button>Search</button>
-    </aside>
-    <main>
-      <section class="weather-display-main">
-        <section class="current-day-weather"></section>
-        <section class="weather-for-five-days"></section>
-      </section>
-    </main>
+    <!--Using BULMA CSS Library to style-->
+    <div class="wrapper my-2 mx-4">
+    <header
+      class="heading has-background-success has-text-white has-text-centered has-text-weight-bold p-2 is-size-5"
+    >
+      Weather Dashboard
+    </header>
+    <section class="main-container columns">
+      <aside class="left-side column is-3">
+        <label class="search-city-label has-text-weight-bold mb-1 "
+          >Search for a city:
+          <input
+            class="city-input input is-success mb-2"
+            type="text"
+            placeholder="Enter a city"
+          />
+        </label>
+        <button class="search-btn button is-success is-small is-fullwidth">Search</button>
+        <hr class="has-background-success" />
+        <section class="saved-city"></section>
+      </aside>
+      <main class="right-side column">
+        <section class="weather-display-main">
+          <section class="current-day-weather"></section>
+          <section class="weather-for-five-days columns"></section>
+        </section>
+      </main>
+    </section>
+  </div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.10/dayjs.min.js"
       integrity="sha512-FwNWaxyfy2XlEINoSnZh1JQ5TRRtGow0D6XcmAWmYCRgvqOUTnzCxPc9uF35u5ZEpirk1uhlPVA19tflhvnW1g=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-
     <script src="./script.js"></script>
   </body>
 </html>
