@@ -16,33 +16,77 @@
     <!--added basics for the UI using semantic HTML tags-->
     <!--Using BULMA CSS Library to style-->
     <div class="wrapper my-2 mx-4">
-    <header
-      class="heading has-background-success has-text-white has-text-centered has-text-weight-bold p-2 is-size-5"
-    >
-      Weather Dashboard
-    </header>
-    <section class="main-container columns">
-      <aside class="left-side column is-3">
-        <label class="search-city-label has-text-weight-bold mb-1 "
-          >Search for a city:
-          <input
-            class="city-input input is-success mb-2"
-            type="text"
-            placeholder="Enter a city"
-          />
-        </label>
-        <button class="search-btn button is-success is-small is-fullwidth">Search</button>
-        <hr class="has-background-success" />
-        <section class="saved-city"></section>
-      </aside>
-      <main class="right-side column">
-        <section class="weather-display-main">
-          <section class="current-day-weather"></section>
-          <section class="weather-for-five-days columns"></section>
-        </section>
-      </main>
-    </section>
-  </div>
+      <header
+        class="heading has-background-success has-text-white has-text-centered has-text-weight-bold p-2 is-size-5"
+      >
+        Weather Dashboard
+      </header>
+      <section class="main-container columns">
+        <aside class="left-side column is-3">
+          <label class="search-city-label has-text-weight-bold mb-1"
+            >Search for a city:
+            <input
+              class="city-input input is-success mb-2"
+              type="text"
+              placeholder="Enter a city"
+            />
+          </label>
+          <button class="search-btn button is-success is-small is-fullwidth">
+            Search
+          </button>
+          <hr class="has-background-success" />
+          <section class="saved-city"></section>
+        </aside>
+        <main class="right-side column is-8">
+          <section class="current-day-weather day-1 box mt-2">
+            <span class="city-and-day column p-0"></span>
+            <span class="temp column p-0">Temp:</span>
+            <span class="wind column p-0">Wind:</span>
+            <span class="humidity column p-0">Humidity:</span>
+          </section>
+          <div class="mb-4">5-Day Forecast:</div>
+          <section class="five-day-weather">
+            <div class="columns" style="gap: 10px">
+              <div class="column day-2 has-background-success">
+                <div class="day"></div>
+                <div class="sym"></div>
+                <div class="temp">Temp:</div>
+                <div class="wind">Wind:</div>
+                <div class="humidity">Humidity:</div>
+              </div>
+              <div class="column day-3 has-background-success">
+                <div class="day"></div>
+                <div class="sym"></div>
+                <div class="temp">Temp:</div>
+                <div class="wind">Wind:</div>
+                <div class="humidity">Humidity:</div>
+              </div>
+              <div class="column day-4 has-background-success">
+                <div class="day"></div>
+                <div class="sym"></div>
+                <div class="temp">Temp:</div>
+                <div class="wind">Wind:</div>
+                <div class="humidity">Humidity:</div>
+              </div>
+              <div class="column day-5 has-background-success">
+                <div class="day"></div>
+                <div class="sym"></div>
+                <div class="temp">Temp:</div>
+                <div class="wind">Wind:</div>
+                <div class="humidity">Humidity:</div>
+              </div>
+              <div class="column day-6 has-background-success">
+                <div class="day"></div>
+                <div class="sym"></div>
+                <div class="temp">Temp:</div>
+                <div class="wind">Wind:</div>
+                <div class="humidity">Humidity:</div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </section>
+    </div>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.10/dayjs.min.js"
       integrity="sha512-FwNWaxyfy2XlEINoSnZh1JQ5TRRtGow0D6XcmAWmYCRgvqOUTnzCxPc9uF35u5ZEpirk1uhlPVA19tflhvnW1g=="
