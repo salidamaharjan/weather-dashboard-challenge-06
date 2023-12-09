@@ -18,8 +18,6 @@ searchBtn.addEventListener("click", function () {
   enteredCity.value = "";
 });
 function toDisplaySearchedCity(cityEntered) {
-  var savedCity = document.querySelector(".saved-city");
-  var btnEl = document.createElement("button");
   var city = [];
   city = JSON.parse(localStorage.getItem("city")) || [];
   var findEnteredCityInArr = city.some(function (item) {
@@ -28,9 +26,7 @@ function toDisplaySearchedCity(cityEntered) {
   if (findEnteredCityInArr) {
     return;
   }
-  btnEl.setAttribute("class", "button is-primary is-small is-fullwidth mb-2");
-  btnEl.textContent = cityEntered;
-  savedCity.append(btnEl);
+  createCityBtn(cityEntered);
   city.push(cityEntered);
   localStorage.setItem("city", JSON.stringify(city));
 }
@@ -39,12 +35,15 @@ function reRenderedLocalStorage() {
   city = JSON.parse(localStorage.getItem("city")) || [];
   console.log(city);
   for (var i = 0; i < city.length; i++) {
-    var savedCity = document.querySelector(".saved-city");
-    var btnEl = document.createElement("button");
-    btnEl.setAttribute("class", "button is-primary is-small is-fullwidth mb-2");
-    btnEl.textContent = city[i];
-    savedCity.append(btnEl);
+    createCityBtn(city[i]);
   }
+}
+function createCityBtn(cityName) {
+  var savedCity = document.querySelector(".saved-city");
+  var btnEl = document.createElement("button");
+  btnEl.setAttribute("class", "button is-primary is-small is-fullwidth mb-2");
+  btnEl.textContent = cityName;
+  savedCity.append(btnEl);
 }
 function fetchWeatherApi(city) {
   // var fetchGeoURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city},US&appid=${apiKey}`;
