@@ -57,30 +57,40 @@ function displayWeatherData(data) {
     dayjs().add(1, "day").format("MM/DD/YYYY"),
     data.list.find(function (item) {
       var day2Date = dayjs().add(1, "day").format("YYYY-MM-DD");
-      console.log("cc ", dayjs().add(1, "day").format("YYYY-MM-DD"));
-      console.log(item.dt_txt);
       return item.dt_txt.startsWith(day2Date);
     })
   );
   tempWindHumidity(
     ".day-3",
     dayjs().add(2, "day").format("MM/DD/YYYY"),
-    data.list[0]
+    data.list.find(function(item){
+      var day3Date = dayjs().add(2, "day").format("YYYY-MM-DD");
+      return item.dt_txt.startsWith(day3Date);
+    })
   );
   tempWindHumidity(
     ".day-4",
     dayjs().add(3, "day").format("MM/DD/YYYY"),
-    data.list[0]
+    data.list.find(function(item){
+      var day4Date = dayjs().add(3, "day").format("YYYY-MM-DD");
+      return item.dt_txt.startsWith(day4Date);
+    })
   );
   tempWindHumidity(
     ".day-5",
     dayjs().add(4, "day").format("MM/DD/YYYY"),
-    data.list[0]
+    data.list.find(function(item){
+      var day5Date = dayjs().add(4, "day").format("YYYY-MM-DD");
+      return item.dt_txt.startsWith(day5Date);
+    })
   );
   tempWindHumidity(
     ".day-6",
     dayjs().add(5, "day").format("MM/DD/YYYY"),
-    data.list[0]
+    data.list.find(function(item){
+      var day6Date = dayjs().add(5, "day").format("YYYY-MM-DD");
+      return item.dt_txt.startsWith(day6Date);
+    })
   );
 }
 
