@@ -5,6 +5,10 @@ var apiKey = "45d530864ca0ff65bba0b74830f6c217";
 //adding event listener to button
 searchBtn.addEventListener("click", function () {
   var enteredCity = document.querySelector(".city-input");
+  if(enteredCity.value === "") {
+    alert("Enter a city");
+    return;
+  }
   var displayCity = document.querySelector(".city");
 
   displayCity.textContent = enteredCity.value;
