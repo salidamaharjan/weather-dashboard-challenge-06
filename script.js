@@ -9,7 +9,8 @@ searchBtn.addEventListener("click", function () {
   var enteredCity = document.querySelector(".city-input");
   var displayCity = document.querySelector(".city");
   if (enteredCity.value === "") {
-    alert("Enter a city");
+    var modal = document.querySelector(".modal");
+    modal.classList.add("is-active");
     return;
   }
   toDisplaySearchedCity(enteredCity.value);
@@ -17,6 +18,16 @@ searchBtn.addEventListener("click", function () {
   console.log(enteredCity.value);
   fetchWeatherApi(enteredCity.value);
   enteredCity.value = "";
+});
+var modal = document.querySelector(".modal");
+modal.addEventListener("click", function (event) {
+  if (
+    event.target.matches(".modal-background") ||
+    event.target.matches(".modal-close")
+  ) {
+    var modal = document.querySelector(".modal");
+    modal.classList.remove("is-active");
+  }
 });
 function toDisplaySearchedCity(cityEntered) {
   var city = [];
@@ -147,6 +158,9 @@ function tempWindHumidity(day, date, data) {
   dayTemp.textContent = data.main.temp;
   dayWind.textContent = data.wind.speed;
   dayHumidity.textContent = data.main.humidity;
-   var daySym = data.weather[0].icon;
-  dayImgEl.setAttribute("src", `https://openweathermap.org/img/wn/${daySym}@2x.png`);
+  var daySym = data.weather[0].icon;
+  dayImgEl.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${daySym}@2x.png`
+  );
 }
