@@ -138,12 +138,15 @@ function displayWeatherData(data) {
 }
 
 function tempWindHumidity(day, date, data) {
-  var day1Temp = document.querySelector(`${day} .temp span`);
-  var day1Wind = document.querySelector(`${day} .wind span`);
-  var day1Humidity = document.querySelector(`${day} .humidity span`);
+  var dayTemp = document.querySelector(`${day} .temp span`);
+  var dayWind = document.querySelector(`${day} .wind span`);
+  var dayHumidity = document.querySelector(`${day} .humidity span`);
   var dateEl = document.querySelector(`${day} .date`);
+  var dayImgEl = document.querySelector(`${day} .sym`);
   dateEl.textContent = date;
-  day1Temp.textContent = data.main.temp;
-  day1Wind.textContent = data.wind.speed;
-  day1Humidity.textContent = data.main.humidity;
+  dayTemp.textContent = data.main.temp;
+  dayWind.textContent = data.wind.speed;
+  dayHumidity.textContent = data.main.humidity;
+   var daySym = data.weather[0].icon;
+  dayImgEl.setAttribute("src", `https://openweathermap.org/img/wn/${daySym}@2x.png`);
 }
