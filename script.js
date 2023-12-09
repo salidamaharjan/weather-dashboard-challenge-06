@@ -55,7 +55,12 @@ function displayWeatherData(data) {
   tempWindHumidity(
     ".day-2",
     dayjs().add(1, "day").format("MM/DD/YYYY"),
-    data.list[0]
+    data.list.find(function (item) {
+      var day2Date = dayjs().add(1, "day").format("YYYY-MM-DD");
+      console.log("cc ", dayjs().add(1, "day").format("YYYY-MM-DD"));
+      console.log(item.dt_txt);
+      return item.dt_txt.startsWith(day2Date);
+    })
   );
   tempWindHumidity(
     ".day-3",
