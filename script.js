@@ -1,12 +1,19 @@
 //locating a button from html file to variable stored in DOM
 var searchBtn = document.querySelector(".search-btn");
+var apiKey = "45d530864ca0ff65bba0b74830f6c217";
 
 //adding event listener to button
 searchBtn.addEventListener("click", function () {
-  fetchWeatherApi();
+  var enteredCity = document.querySelector(".city-input");
+  var displayCity = document.querySelector(".city");
+  displayCity.textContent = enteredCity.value;
+  console.log(enteredCity.value);
+  fetchWeatherApi(enteredCity.value);
+  
 });
-function fetchWeatherApi() {
-  var fetchGeoURL = `./geo.json`;
+function fetchWeatherApi(city) {
+  // var fetchGeoURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city},US&appid=${apiKey}`;
+  var fetchGeoURL = "./geo.json";
   fetch(fetchGeoURL)
     .then(function (response) {
       return response.json();
@@ -15,6 +22,7 @@ function fetchWeatherApi() {
       var latAndLon = fetchWeatherWithLatLon(data);
       var lat = latAndLon.lat;
       var lon = latAndLon.lon;
+      // var fetchWeatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`
       var fetchWeatherURL = "./weather.json";
       fetch(fetchWeatherURL)
         .then(function (response) {
