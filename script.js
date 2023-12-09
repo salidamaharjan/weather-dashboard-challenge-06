@@ -88,6 +88,10 @@ function displayWeatherData(data) {
   console.log(data.list[0].main.temp);
   console.log(data.list[0].main.humidity);
   console.log(data.list[0].wind.speed);
+  var text = document.querySelector(".text");
+  text.classList.add("is-hidden");
+  var rightSide = document.querySelector(".right-side");
+  rightSide.classList.remove("is-hidden");
   var currentDate = dayjs().format("MM/DD/YYYY");
   tempWindHumidity(".day-1", currentDate, data.list[0]);
 
