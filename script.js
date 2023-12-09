@@ -3,6 +3,7 @@ var searchBtn = document.querySelector(".search-btn");
 var apiKey = "45d530864ca0ff65bba0b74830f6c217";
 
 reRenderedLocalStorage();
+
 //adding event listener to button
 searchBtn.addEventListener("click", function () {
   var enteredCity = document.querySelector(".city-input");
@@ -44,6 +45,11 @@ function createCityBtn(cityName) {
   btnEl.setAttribute("class", "button is-primary is-small is-fullwidth mb-2");
   btnEl.textContent = cityName;
   savedCity.append(btnEl);
+  btnEl.addEventListener("click", function () {
+    var displayCity = document.querySelector(".city");
+    displayCity.textContent = cityName;
+    fetchWeatherApi(cityName);
+  });
 }
 function fetchWeatherApi(city) {
   // var fetchGeoURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city},US&appid=${apiKey}`;
