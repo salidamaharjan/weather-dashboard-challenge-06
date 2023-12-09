@@ -19,9 +19,19 @@ searchBtn.addEventListener("click", function () {
 function toDisplaySearchedCity(cityEntered) {
   var savedCity = document.querySelector(".saved-city");
   var btnEl = document.createElement("button");
+  var city = [];
+  city = JSON.parse(localStorage.getItem("city")) || [];
+  var findEnteredCityInArr = city.some(function (item) {
+    return item === cityEntered;
+  });
+  if (findEnteredCityInArr) {
+    return;
+  }
   btnEl.setAttribute("class", "button is-primary is-small is-fullwidth mb-2");
   btnEl.textContent = cityEntered;
   savedCity.append(btnEl);
+  city.push(cityEntered);
+  localStorage.setItem("city", JSON.stringify(city));
 }
 function fetchWeatherApi(city) {
   // var fetchGeoURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city},US&appid=${apiKey}`;
