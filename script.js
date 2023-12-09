@@ -63,8 +63,8 @@ function createCityBtn(cityName) {
   });
 }
 function fetchWeatherApi(city) {
-  // var fetchGeoURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city},US&appid=${apiKey}`;
-  var fetchGeoURL = "./geo.json";
+  var fetchGeoURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city},US&appid=${apiKey}`;
+  // var fetchGeoURL = "./geo.json";
   fetch(fetchGeoURL)
     .then(function (response) {
       return response.json();
@@ -73,8 +73,8 @@ function fetchWeatherApi(city) {
       var latAndLon = fetchWeatherWithLatLon(data);
       var lat = latAndLon.lat;
       var lon = latAndLon.lon;
-      // var fetchWeatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`
-      var fetchWeatherURL = "./weather.json";
+      var fetchWeatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`
+      // var fetchWeatherURL = "./weather.json";
       fetch(fetchWeatherURL)
         .then(function (response) {
           return response.json();
