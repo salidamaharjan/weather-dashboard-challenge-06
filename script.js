@@ -6,7 +6,7 @@ var apiKey = "45d530864ca0ff65bba0b74830f6c217";
 searchBtn.addEventListener("click", function () {
   var enteredCity = document.querySelector(".city-input");
   var displayCity = document.querySelector(".city");
-  if(enteredCity.value === "") {
+  if (enteredCity.value === "") {
     alert("Enter a city");
     return;
   }
@@ -14,10 +14,12 @@ searchBtn.addEventListener("click", function () {
   displayCity.textContent = enteredCity.value;
   console.log(enteredCity.value);
   fetchWeatherApi(enteredCity.value);
+  enteredCity.value = "";
 });
-function toDisplaySearchedCity(cityEntered){
+function toDisplaySearchedCity(cityEntered) {
   var savedCity = document.querySelector(".saved-city");
   var btnEl = document.createElement("button");
+  btnEl.setAttribute("class", "button is-primary is-small is-fullwidth mb-2");
   btnEl.textContent = cityEntered;
   savedCity.append(btnEl);
 }
@@ -72,7 +74,7 @@ function displayWeatherData(data) {
   tempWindHumidity(
     ".day-3",
     dayjs().add(2, "day").format("MM/DD/YYYY"),
-    data.list.find(function(item){
+    data.list.find(function (item) {
       var day3Date = dayjs().add(2, "day").format("YYYY-MM-DD");
       return item.dt_txt.startsWith(day3Date);
     })
@@ -80,7 +82,7 @@ function displayWeatherData(data) {
   tempWindHumidity(
     ".day-4",
     dayjs().add(3, "day").format("MM/DD/YYYY"),
-    data.list.find(function(item){
+    data.list.find(function (item) {
       var day4Date = dayjs().add(3, "day").format("YYYY-MM-DD");
       return item.dt_txt.startsWith(day4Date);
     })
@@ -88,7 +90,7 @@ function displayWeatherData(data) {
   tempWindHumidity(
     ".day-5",
     dayjs().add(4, "day").format("MM/DD/YYYY"),
-    data.list.find(function(item){
+    data.list.find(function (item) {
       var day5Date = dayjs().add(4, "day").format("YYYY-MM-DD");
       return item.dt_txt.startsWith(day5Date);
     })
@@ -96,7 +98,7 @@ function displayWeatherData(data) {
   tempWindHumidity(
     ".day-6",
     dayjs().add(5, "day").format("MM/DD/YYYY"),
-    data.list.find(function(item){
+    data.list.find(function (item) {
       var day6Date = dayjs().add(5, "day").format("YYYY-MM-DD");
       return item.dt_txt.startsWith(day6Date);
     })
