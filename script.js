@@ -5,17 +5,22 @@ var apiKey = "45d530864ca0ff65bba0b74830f6c217";
 //adding event listener to button
 searchBtn.addEventListener("click", function () {
   var enteredCity = document.querySelector(".city-input");
+  var displayCity = document.querySelector(".city");
   if(enteredCity.value === "") {
     alert("Enter a city");
     return;
   }
-  var displayCity = document.querySelector(".city");
-
+  toDisplaySearchedCity(enteredCity.value);
   displayCity.textContent = enteredCity.value;
   console.log(enteredCity.value);
   fetchWeatherApi(enteredCity.value);
-  // displayDate.textContent = date;
 });
+function toDisplaySearchedCity(cityEntered){
+  var savedCity = document.querySelector(".saved-city");
+  var btnEl = document.createElement("button");
+  btnEl.textContent = cityEntered;
+  savedCity.append(btnEl);
+}
 function fetchWeatherApi(city) {
   // var fetchGeoURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city},US&appid=${apiKey}`;
   var fetchGeoURL = "./geo.json";
