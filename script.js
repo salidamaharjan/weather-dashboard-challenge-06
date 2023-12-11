@@ -7,16 +7,15 @@ reRenderedLocalStorage();
 //adding event listener to button
 searchBtn.addEventListener("click", function () {
   var enteredCity = document.querySelector(".city-input");
-  var displayCity = document.querySelector(".city");
+
   if (enteredCity.value === "") {
     var modal = document.querySelector(".modal");
     modal.classList.add("is-active");
     return;
   }
-  toDisplaySearchedCity(enteredCity.value);
-  displayCity.textContent = enteredCity.value;
   console.log(enteredCity.value);
   fetchWeatherApi(enteredCity.value);
+
   enteredCity.value = "";
 });
 var modal = document.querySelector(".modal");
@@ -29,6 +28,7 @@ modal.addEventListener("click", function (event) {
     modal.classList.remove("is-active");
   }
 });
+
 function toDisplaySearchedCity(cityEntered) {
   var city = [];
   city = JSON.parse(localStorage.getItem("city")) || [];
@@ -42,6 +42,7 @@ function toDisplaySearchedCity(cityEntered) {
   city.push(cityEntered);
   localStorage.setItem("city", JSON.stringify(city));
 }
+
 function reRenderedLocalStorage() {
   var city = [];
   city = JSON.parse(localStorage.getItem("city")) || [];
@@ -53,7 +54,10 @@ function reRenderedLocalStorage() {
 function createCityBtn(cityName) {
   var savedCity = document.querySelector(".saved-city");
   var btnEl = document.createElement("button");
-  btnEl.setAttribute("class", "button is-link is-light is-small is-fullwidth mb-2");
+  btnEl.setAttribute(
+    "class",
+    "button is-link is-light is-small is-fullwidth mb-2"
+  );
   btnEl.textContent = cityName;
   savedCity.append(btnEl);
   btnEl.addEventListener("click", function () {
@@ -71,10 +75,16 @@ function fetchWeatherApi(city) {
     })
     .then(function (data) {
       var latAndLon = fetchWeatherWithLatLon(data);
+      console.log("what is data = ", data);
+      console.log("lat and long ", latAndLon);
+      var cityName = latAndLon.name;
       var lat = latAndLon.lat;
       var lon = latAndLon.lon;
-      // var fetchWeatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`
-      var fetchWeatherURL = "./weather.json";
+      toDisplaySearchedCity(cityName);
+      var displayCity = document.querySelector(".city");
+      displayCity.textContent = cityName;
+      var fetchWeatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`
+      // var fetchWeatherURL = "./weather.json";
       fetch(fetchWeatherURL)
         .then(function (response) {
           return response.json();
@@ -89,7 +99,11 @@ function fetchWeatherWithLatLon(geoInfo) {
     var country = geoInfo[i].country;
     if (country === "US") {
       // console.log(country);
-      return { lon: geoInfo[i].lon, lat: geoInfo[i].lat };
+      return {
+        name: geoInfo[i].name,
+        lon: geoInfo[i].lon,
+        lat: geoInfo[i].lat,
+      };
       // console.log(lon, lat);
     }
   }
@@ -99,6 +113,7 @@ function displayWeatherData(data) {
   console.log(data.list[0].main.temp);
   console.log(data.list[0].main.humidity);
   console.log(data.list[0].wind.speed);
+
   var text = document.querySelector(".text");
   text.classList.add("is-hidden");
   var rightSide = document.querySelector(".right-side");
