@@ -6,6 +6,16 @@ var apiKey = "45d530864ca0ff65bba0b74830f6c217";
 //any saved city found
 reRenderedLocalStorage();
 
+//adding a feature to search weather for entered city when pressed 'enter key'
+var inputTextArea = document.querySelector(".city-input");
+inputTextArea.addEventListener("keypress", function(event){
+  console.log(event.key);
+  if(event.key === "Enter"){
+    event.preventDefault();
+    searchBtn.click();
+  }
+})
+
 //adding event listener to button
 searchBtn.addEventListener("click", function () {
   var enteredCity = document.querySelector(".city-input");
