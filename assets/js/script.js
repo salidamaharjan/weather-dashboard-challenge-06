@@ -10,12 +10,12 @@ reRenderedLocalStorage();
 
 //adding a feature to search weather for entered city when pressed 'enter key'
 var inputTextArea = document.querySelector(".city-input");
-inputTextArea.addEventListener("keypress", function(event){
-  if(event.key === "Enter"){
+inputTextArea.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
     event.preventDefault();
     searchBtn.click();
   }
-})
+});
 
 //adding event listener to button
 searchBtn.addEventListener("click", function () {
@@ -111,7 +111,7 @@ function createCityBtn(cityName) {
 //function to fetch weather API and Geo API
 function fetchWeatherApi(city) {
   var fetchGeoURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city},US&appid=${apiKey}`;
-  // var fetchGeoURL = "./geo.json";
+
   //fetching geo API to find out the latitude, longitude and name of the city
   fetch(fetchGeoURL)
     .then(function (response) {
@@ -120,7 +120,7 @@ function fetchWeatherApi(city) {
     })
     .then(function (data) {
       //alert user as a modal if the city name is not entered
-      if(data.length === 0){
+      if (data.length === 0) {
         modal.classList.add("is-active");
         return;
       }
@@ -137,7 +137,7 @@ function fetchWeatherApi(city) {
 
       //fetching weather API to pass the data to display in UI
       var fetchWeatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
-      // var fetchWeatherURL = "./weather.json";
+
       fetch(fetchWeatherURL)
         .then(function (response) {
           return response.json();
@@ -149,12 +149,12 @@ function fetchWeatherApi(city) {
     });
 }
 
-//this gives the latitude, longitude and name of the city entered from the 
+//this gives the latitude, longitude and name of the city entered from the
 //geo API
 function fetchWeatherWithLatLon(geoInfo) {
   for (var i = 0; i < geoInfo.length; i++) {
     var country = geoInfo[i].country;
-  
+
     //to return the city from USA
     if (country === "US") {
       return {
@@ -221,7 +221,7 @@ function displayWeatherData(data) {
 }
 
 //this function has three parameter and shows the temp
-// wind, humidity, date and img of the weather in UI 
+// wind, humidity, date and img of the weather in UI
 function tempWindHumidity(day, date, data) {
   //using string interpolation to add the variable
   var dayTemp = document.querySelector(`${day} .temp span`);
