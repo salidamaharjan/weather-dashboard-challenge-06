@@ -53,7 +53,7 @@ function reRenderedLocalStorage() {
 function createCityBtn(cityName) {
   var savedCity = document.querySelector(".saved-city");
   var btnEl = document.createElement("button");
-  btnEl.setAttribute("class", "button is-primary is-small is-fullwidth mb-2");
+  btnEl.setAttribute("class", "button is-link is-light is-small is-fullwidth mb-2");
   btnEl.textContent = cityName;
   savedCity.append(btnEl);
   btnEl.addEventListener("click", function () {
@@ -73,8 +73,8 @@ function fetchWeatherApi(city) {
       var latAndLon = fetchWeatherWithLatLon(data);
       var lat = latAndLon.lat;
       var lon = latAndLon.lon;
-      var fetchWeatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`
-      // var fetchWeatherURL = "./weather.json";
+      // var fetchWeatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`
+      var fetchWeatherURL = "./weather.json";
       fetch(fetchWeatherURL)
         .then(function (response) {
           return response.json();
