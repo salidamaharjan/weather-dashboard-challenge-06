@@ -9,7 +9,6 @@ reRenderedLocalStorage();
 //adding a feature to search weather for entered city when pressed 'enter key'
 var inputTextArea = document.querySelector(".city-input");
 inputTextArea.addEventListener("keypress", function(event){
-  console.log(event.key);
   if(event.key === "Enter"){
     event.preventDefault();
     searchBtn.click();
@@ -23,7 +22,6 @@ searchBtn.addEventListener("click", function () {
   //modal will be active which asks the user to enter a city name or
   //select from the saved list
   if (enteredCity.value === "") {
-    var modal = document.querySelector(".modal");
     modal.classList.add("is-active");
     return;
   }
@@ -121,6 +119,11 @@ function fetchWeatherApi(city) {
       return response.json();
     })
     .then(function (data) {
+      //alert user as a modal if the city name is not entered
+      if(data.length === 0){
+        modal.classList.add("is-active");
+        return;
+      }
       //calling a function which give the lat, lon and name of the entered city in the API
       var latAndLon = fetchWeatherWithLatLon(data);
       var cityName = latAndLon.name;
