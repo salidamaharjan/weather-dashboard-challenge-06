@@ -1,6 +1,8 @@
 //locating a button from html file to variable stored in DOM
 var searchBtn = document.querySelector(".search-btn");
 var apiKey = "45d530864ca0ff65bba0b74830f6c217";
+//locating the modal section from HTML
+var modal = document.querySelector(".modal");
 
 //rerenders the items from local storage and displays as a button if
 //any saved city found
@@ -33,8 +35,6 @@ searchBtn.addEventListener("click", function () {
   enteredCity.value = "";
 });
 
-//locating the modal section from HTML
-var modal = document.querySelector(".modal");
 //the modal display closes when the user click on th cross button
 //or anywhere outside the modal display box
 modal.addEventListener("click", function (event) {
