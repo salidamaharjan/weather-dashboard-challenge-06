@@ -41,56 +41,93 @@
           <section class="current-day-weather day-1 box mt-2">
             <div class="city p-0 has-text-weight-bold is-size-4"></div>
             <div class="date has-text-weight-bold"></div>
-            <img class="sym" alt="weather icon"/>            
+            <img class="sym" alt="weather icon" />
             <div class="temp is-size-6 p-0">Temp: <span></span> &deg;F</div>
             <div class="wind p-0">Wind: <span></span> MPH</div>
             <div class="humidity p-0">Humidity: <span></span>%</div>
           </section>
           <div class="mb-4 has-text-weight-bold">5-Day Forecast:</div>
+
+          <!-- created five areas to display 5 day weather -->
           <section class="five-day-weather p-2">
             <div class="columns">
               <div class="column day-2 has-background-info m-1">
                 <div class="date has-text-white has-text-weight-bold"></div>
-                <img class="sym" alt="weather icon"/>            
-                <div class="temp has-text-white is-size-7">Temp: <span></span> &deg;F</div>
-                <div class="wind has-text-white is-size-7">Wind: <span></span> MPH</div>
-                <div class="humidity has-text-white is-size-7">Humidity: <span></span> %</div>
+                <img class="sym" alt="weather icon" />
+                <div class="temp has-text-white is-size-7">
+                  Temp: <span></span> &deg;F
+                </div>
+                <div class="wind has-text-white is-size-7">
+                  Wind: <span></span> MPH
+                </div>
+                <div class="humidity has-text-white is-size-7">
+                  Humidity: <span></span> %
+                </div>
               </div>
               <div class="column day-3 has-background-info m-1">
                 <div class="date has-text-white has-text-weight-bold"></div>
-                <img class="sym" alt="weather icon"/>            
-                <div class="temp has-text-white is-size-7">Temp: <span></span> &deg;F</div>
-                <div class="wind has-text-white is-size-7">Wind: <span></span> MPH</div>
-                <div class="humidity has-text-white is-size-7">Humidity: <span></span> %</div>
+                <img class="sym" alt="weather icon" />
+                <div class="temp has-text-white is-size-7">
+                  Temp: <span></span> &deg;F
+                </div>
+                <div class="wind has-text-white is-size-7">
+                  Wind: <span></span> MPH
+                </div>
+                <div class="humidity has-text-white is-size-7">
+                  Humidity: <span></span> %
+                </div>
               </div>
               <div class="column day-4 has-background-info m-1">
                 <div class="date has-text-white has-text-weight-bold"></div>
-                <img class="sym" alt="weather icon"/>            
-                <div class="temp has-text-white is-size-7">Temp: <span></span> &deg;F</div>
-                <div class="wind has-text-white is-size-7">Wind: <span></span> MPH</div>
-                <div class="humidity has-text-white is-size-7">Humidity: <span></span> %</div>
+                <img class="sym" alt="weather icon" />
+                <div class="temp has-text-white is-size-7">
+                  Temp: <span></span> &deg;F
+                </div>
+                <div class="wind has-text-white is-size-7">
+                  Wind: <span></span> MPH
+                </div>
+                <div class="humidity has-text-white is-size-7">
+                  Humidity: <span></span> %
+                </div>
               </div>
               <div class="column day-5 has-background-info m-1">
                 <div class="date has-text-white has-text-weight-bold"></div>
-                <img class="sym" alt="weather icon"/>            
-                <div class="temp has-text-white is-size-7">Temp: <span></span> &deg;F</div>
-                <div class="wind has-text-white is-size-7">Wind: <span></span> MPH</div>
-                <div class="humidity has-text-white is-size-7">Humidity: <span></span> %</div>
+                <img class="sym" alt="weather icon" />
+                <div class="temp has-text-white is-size-7">
+                  Temp: <span></span> &deg;F
+                </div>
+                <div class="wind has-text-white is-size-7">
+                  Wind: <span></span> MPH
+                </div>
+                <div class="humidity has-text-white is-size-7">
+                  Humidity: <span></span> %
+                </div>
               </div>
               <div class="column day-6 has-background-info m-1">
                 <div class="date has-text-white has-text-weight-bold"></div>
-                <img class="sym" alt="weather icon"/>            
-                <div class="temp has-text-white is-size-7">Temp: <span></span> &deg;F</div>
-                <div class="wind has-text-white is-size-7">Wind: <span></span> MPH</div>
-                <div class="humidity has-text-white is-size-7">Humidity: <span></span> %</div>
+                <img class="sym" alt="weather icon" />
+                <div class="temp has-text-white is-size-7">
+                  Temp: <span></span> &deg;F
+                </div>
+                <div class="wind has-text-white is-size-7">
+                  Wind: <span></span> MPH
+                </div>
+                <div class="humidity has-text-white is-size-7">
+                  Humidity: <span></span> %
+                </div>
               </div>
             </div>
           </section>
         </main>
-        <section class="text column is-8"><h2 class="has-text-weight-bold
-          has-text-centered">Enter a City or select from saved one.</h2></section>
+        <section class="text column is-8">
+          <h2 class="has-text-weight-bold has-text-centered">
+            Enter a City or select from saved one.
+          </h2>
+        </section>
       </section>
     </div>
+    <!-- used BULMA modal which will be active when the user click search button without entering a city -->
+    <!-- or without selecting the saved city -->
     <div class="modal">
       <div class="modal-background"></div>
       <div class="modal-content">
